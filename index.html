@@ -1,247 +1,249 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Majed Mouawad</title>
-    <link rel="stylesheet" href="./styles.css">
-    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="./assets/code10.png">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Majed Mouawad</title>
+<link rel="icon" href="./assets/code10.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0c0f;--bg2:#111318;--ink:#f2f3f5;--muted:#b5bac8;--line:#212530;--glass:#0d0f14cc;--ring:#86a2ff40;--chip:#151a22;--pill:#10131a}
+*{box-sizing:border-box}html,body{height:100%}
+body{margin:0;background:
+radial-gradient(1200px 800px at 10% -10%,#1a2235 0%,transparent 60%),
+radial-gradient(900px 600px at 110% 10%,#131b2a 0%,transparent 55%),
+radial-gradient(700px 500px at 30% 120%,#151c27 0%,transparent 55%),
+linear-gradient(#0b0c0f,#0b0c0f);color:var(--ink);font:400 16px/1.65 Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.container{width:min(1160px,92vw);margin:0 auto}
+.grid{display:grid;gap:28px}
+@media(min-width:985px){.grid{grid-template-columns:1fr 1.35fr}}
+.left{position:sticky;top:0;padding:40px 0;height:100dvh;display:flex;flex-direction:column;justify-content:space-between}
+.right{padding:40px 0}
+.progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,#8fb3ff,#cbd6ff,#8fb3ff);z-index:60}
+
+.card{background:linear-gradient(180deg,var(--glass),var(--glass));border:1px solid #ffffff18;border-top-color:#ffffff25;border-radius:22px;backdrop-filter:blur(14px);padding:22px;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at -10% -20%,#ffffff26,transparent 50%),linear-gradient(180deg,#ffffff14,transparent 40%);mix-blend-mode:overlay;pointer-events:none}
+
+.name{font-size:clamp(36px,7.2vw,64px);line-height:1.05;margin:0;letter-spacing:.005em}
+.fade{display:inline-block;background:linear-gradient(180deg,#ffffff,#e6ebff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.type{display:inline-block;border-right:2px solid var(--ink);white-space:nowrap;overflow:hidden}
+.subtitle{color:#cfd3de;margin:10px 0 16px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.badge{padding:6px 10px;border-radius:999px;background:var(--pill);border:1px solid #212530;color:#bfc6d6;font-size:12px}
+
+.btn{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 16px;border-radius:12px;border:1px solid #ffffff24;background:linear-gradient(180deg,#12151d,#0f1219);color:var(--ink);font-weight:700;transition:transform .2s ease,box-shadow .2s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 28px -8px var(--ring)}
+.iconbtn{width:44px;height:44px;border-radius:12px;border:1px solid #ffffff24;background:linear-gradient(180deg,#12151d,#0f1219);display:grid;place-items:center;transition:transform .2s ease}
+.iconbtn:hover{transform:translateY(-1px)}
+.icon{width:20px;height:20px}
+
+.section{margin-bottom:46px}
+.section h2{margin:0 0 14px;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:#d8def1}
+.timeline{display:grid;gap:14px}
+
+.company{display:grid;gap:10px;border-radius:18px;border:1px solid #ffffff18;background:linear-gradient(180deg,#0f1218,#0d1016);padding:16px}
+.company-head{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.company-left{display:flex;align-items:center;gap:12px}
+.logo{width:30px;height:30px;border-radius:8px;background:#121722;border:1px solid #ffffff1a;overflow:hidden;display:grid;place-items:center}
+.logo img{width:100%;height:100%;object-fit:contain}
+.meta{display:flex;gap:16px;align-items:center;color:var(--muted);font-size:14px}
+.title-line{font-weight:800}
+.subtle{color:var(--muted)}
+
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.chip{padding:6px 10px;border-radius:999px;background:var(--chip);border:1px solid #ffffff14;color:#c9cfe1;font-size:12px;font-weight:600}
+
+.stack-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:700px){.stack-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.tile{display:flex;align-items:center;gap:12px;border:1px solid #ffffff18;background:linear-gradient(180deg,#0e1017,#0c0f15);padding:12px 14px;border-radius:14px;transition:transform .15s ease}
+.tile:hover{transform:translateY(-2px)}
+.ticon{width:22px;height:22px}
+
+.rolebox{border:1px solid #ffffff16;background:linear-gradient(180deg,#0f131a,#0e1117);border-radius:14px;padding:12px 14px}
+.rolebox .head{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.rolebox .title{font-weight:700}
+
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+.reveal.active{opacity:1;transform:none}
+
+@media(max-width:989px){
+  .left{position:static;height:auto;padding:24px 0}
+  .name{font-size:clamp(28px,10vw,42px)}
+  .company-head{gap:10px}
+  .meta{flex-wrap:wrap}
+  .rolebox .head{flex-direction:column;align-items:flex-start}
+}
+
+footer{color:#8f96a8;margin:36px 0 28px;text-align:center}
+</style>
 </head>
 <body>
-    <section id="about-me">
-      <nav>
-        <div class="personal_logo">Majed Mouawad</div>
-        <ul class="nav__link--list">
-            <li class = "nav__link">
-                <a href="#languages" class="
-                nav__link--anchor
-                link__hover-effect
-                link__hover-effect--black
-                ">Languages</a>
-            </li>
-            <li class = "nav__link">
-                <a href="#projects" class="
-                nav__link--anchor
-                link__hover-effect
-                link__hover-effect--black
-                ">Projects</a>
-            </li>
-            <li class = "nav__link">
-                <a href="./assets/MajedMouawadResume.pdf" target="_blank" class="
-                nav__link--anchor
-                nav__link--anchor-primary
-                ">Resume</a>
-            </li>
-        </ul>
-      </nav>
-    <div class="flex flex-1">
-        <div class="about-me__info row">
-            <div class="about-me__info--container">
-                <figure class="about-me__picture--mask">
-                    <img src="./assets/me.jpeg" class="about-me__picture" alt="Picture of me">
-                </figure>
-                <h1 class="about-me__info--title">
-                    Hey, I'm <span class="text--black">Majed.</span> <!--<span class="wave">👋</span>-->
-                </h1>
-                <p style="font-size: 18px; padding-bottom: 30px;">A fourth-year computer engineering student at uOttawa.</p>
-                <div></div>
-                <div></div>
-                <div class="about-me__links">
-                  <a href="./assets/MajedMouawadResume.pdf" target="_blank" class="about-me__link">
-                    <i class="fas fa-file-pdf"></i>
-                  </a>
-                    <a href="https://www.linkedin.com/in/majedmouawad/" target="_blank" class="about-me__link">
-                      <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/Majed-Mouawad" target="_blank" class="about-me__link">
-                      <i class="fab fa-github"></i>
-                    </a>
-                    <a href="mailto:m.mmajed@hotmail.com" target="_blank" class="about-me__link">
-                      <i class="far fa-envelope"></i>
-                    </a>
+<div class="progress" id="progress"></div>
 
-                  </div>
-                </div>
-        </div>
+<main class="container grid">
+  <aside class="left">
+    <div class="card reveal">
+      <h1 class="name"><span class="fade type" id="type"></span></h1>
+      <div class="subtitle">Software Engineer</div>
+      <div class="row"><span class="badge">Ottawa, Ontario, Canada</span></div>
+      <div class="row" style="margin-top:14px">
+        <a class="btn" href="./assets/MajedMouawad.pdf" download aria-label="Resume">
+          <svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v1a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Resume</span>
+        </a>
+        <a class="iconbtn" href="https://www.linkedin.com/in/majedmouawad" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 448 512" fill="currentColor"><path d="M100.28 448H7.4V148.9h92.88zM53.84 108C24.23 108 0 83.77 0 54.22 0 24.63 24.23.39 53.84.39c29.54 0 53.77 24.24 53.77 53.83 0 29.55-24.23 53.78-53.77 53.78zM447.9 448h-92.4V304.1c0-34.31-12.27-57.69-42.9-57.69-23.36 0-37.3 15.73-43.45 30.91-2.24 5.42-2.79 12.96-2.79 20.55V448h-92.4s1.23-270.1 0-297.1h92.4v42.09c12.28-19 34.26-46.09 83.4-46.09 60.9 0 106.6 39.78 106.6 125.17V448z"/></svg>
+        </a>
+        <a class="iconbtn" href="https://github.com/Majed-Mouawad" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.47 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.86 9.7.5.1.68-.23.68-.5v-1.9c-2.79.62-3.38-1.2-3.38-1.2-.45-1.18-1.1-1.5-1.1-1.5-.9-.64.07-.63.07-.63 1 .07 1.52 1.06 1.52 1.06.9 1.58 2.36 1.12 2.94.86.09-.67.35-1.12.64-1.38-2.23-.26-4.58-1.15-4.58-5.15 0-1.14.39-2.07 1.03-2.8-.1-.26-.45-1.32.1-2.75 0 0 .84-.28 2.76 1.06.8-.23 1.66-.35 2.52-.35s1.72.12 2.52.35c1.92-1.34 2.76-1.06 2.76-1.06.55 1.43.2 2.5.1 2.75.64.73 1.03 1.66 1.03 2.8 0 4.01-2.36 4.89-4.6 5.15.36.32.69.94.69 1.9v2.82c0 .27.18.6.69.5A10.26 10.26 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"/></svg>
+        </a>
+      </div>
     </div>
-    </section>
-    <section id="languages">
-        <div class="container" style ="background-color: #060913;">
-          <div class="row">
-            <h1 class="section__title">This is my <span class="text--white">language stack</span></h1>
-            <div class="language__list">
-              <div class="language">
-                <figure class="language__img--wrapper">
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png"
-                    alt="Html Logo" class="language__img" />
-                </figure>
-                <span class="language__name">HTML</span>
+    <div></div>
+  </aside>
+
+  <section class="right">
+    <section id="experience" class="section">
+      <h2>Experience</h2>
+      <div class="timeline">
+
+        <div class="company reveal">
+          <div class="company-head">
+            <div class="company-left">
+              <div class="logo"><img src="./assets/cisco.svg" alt="Cisco"></div>
+              <div>
+                <div class="title-line">Cisco</div>
+                <div class="subtle">Software Engineer</div>
               </div>
-              <div class="language">
-                <figure class="language__img--wrapper">
-                  <img src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png" alt="CSS Logo"
-                    class="language__img" />
-                </figure>
-                <span class="language__name">CSS</span>
-              </div>
-              <div class="language">
-                <figure class="language__img--wrapper">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/800px-Python-logo-notext.svg.png" alt="Python Logo"
-                    class="language__img" />
-                </figure>
-                <span class="language__name">Python</span>
-              </div>
-              <div class="language">
-                <figure class="language__img--wrapper">
-                  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/800px-Java_programming_language_logo.svg.png" alt="JavaLogo"
-                    class="language__img" />
-                </figure>
-                <span class="language__name">Java</span>
-              </div>  
-              <div class="language">
-                <figure class="language__img--wrapper">
-                  <img src="./assets/cdnlogo.com_c.svg" alt="C# Logo"
-                    class="language__img" />
-                </figure>
-                <span class="language__name">C#</span>
-              </div>  
-              <div class="language">
-                <figure class="language__img--wrapper">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/.NET_Core_Logo.svg/2048px-.NET_Core_Logo.svg.png" alt=".NET core Logo"
-                    class="language__img" />
-                </figure>
-                <span class="language__name">.NET Core</span>
-              </div>                        
+            </div>
+            <div class="meta" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+              <span style="display:inline-flex;align-items:center;gap:8px">
+                <svg viewBox="0 0 24 24" fill="none" style="width:16px;height:16px;display:block">
+                  <path d="M6 2v3M12 2v3M18 2v3M4 7h16M5 9h14v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V9Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span>Aug 2025 – Present</span>
+              </span>
+              <span style="display:inline-flex;align-items:center;gap:8px">
+                <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;display:block">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6 12 6s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+                </svg>
+                <span>Ottawa</span>
+              </span>
             </div>
           </div>
+          <div class="chips"><span class="chip">React.js</span><span class="chip">Ruby</span></div>
         </div>
-      </section>
-      <section id="projects">
-          <div class="row" style="padding-top: 45px;">
-            <h1 class="section__title" style="color: #060913;">Here are some of my <span class="text--black">projects</span></h1>
-            <ul class="project__list">
-              <li class="project">
-                <div class="project__wrapper">
-                  <img src="./assets/openCV.jpg" class="project__img" alt="OpenCV">
-                  <div class="project__description">
-                    <h3 class="project__description--title">Finger Counter & Hand Categorization</h3>
-                    <h4 class="project__description--sub-title">
-                      Python, OpenCV, Mediapipe
-                    </h4>
-                    <p class="project__description--para">
-                      • Designed a program that counts the number of fingers lifted by the user in front of the live-feed camera.<br> 
-                      • Leveraged computer vision to actively categorize any hand being displayed on screen as left hand or right hand.
-                    </p>
-                    <div class="project__description--links">
-                      <a href="https://github.com/Majed-Mouawad/Finger-Counter" target="_blank" class="project__description--link">
-                        <i class="fab fa-github"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="project">
-                <div class="project__wrapper">
-                  <img src="./assets/a-star.jpg" class="project__img" alt="A-star project">
-                  <div class="project__description">
-                    <h3 class="project__description--title">A* pathfinding visualizer</h3>
-                    <h4 class="project__description--sub-title">
-                      Python, Pygame
-                    </h4>
-                    <p class="project__description--para">
-                      • Developed a program that visualizes the A* Algorithm which finds the shortest route between a start node and an end node without going through existing barriers.<br> 
-                      • Designed a Pygame GUI that allow users to select the start and end node, and set barriers in between these nodes.
-                    </p>
-                    <div class="project__description--links">
-                      <a href="https://github.com/Majed-Mouawad/A-star-Pathfinding-Visualizer" target="_blank" class="project__description--link">
-                        <i class="fab fa-github"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="project">
-                <div class="project__wrapper">
-                  <img src="./assets/sudoku.jpg" class="project__img" alt="Sudoku Game project">
-                  <div class="project__description">
-                    <h3 class="project__description--title">Sudoku Game</h3>
-                    <h4 class="project__description--sub-title">
-                      Python, Pygame
-                    </h4>
-                    <p class="project__description--para">
-                      • Developed a GUI that allows the user to play the game of Sudoku at 3 different difficulties.<br>
-                      • Implemented a solver that solves any Sudoku Puzzle using the backtracking algorithm.
-                    </p>
-                    <div class="project__description--links">
-                      <a href="https://github.com/Majed-Mouawad/Sudoku-Game" target="_blank" class="project__description--link">
-                        <i class="fab fa-github"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="project">
-                <div class="project__wrapper">
-                  <img src="./assets/sort.jpg" class="project__img" alt="Sorting Visualizer">
-                  <div class="project__description">
-                    <h3 class="project__description--title">Sorting Visualizer</h3>
-                    <h4 class="project__description--sub-title">
-                      Python, Pygame
-                    </h4>
-                    <p class="project__description--para">
-                      • Developed a program that allows the user to visualize an array of integer being sorted.<br>
-                      • Implemented Merge Sort, Selection Sort and Insertion Sort as the sorting algorithms that the user can choose from.
-                    </p>
-                    <div class="project__description--links">
-                      <a href="https://github.com/Majed-Mouawad/Sorting-Visualizer" target="_blank" class="project__description--link">
-                        <i class="fab fa-github"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
+
+        <div class="company reveal">
+          <div class="company-head">
+            <div class="company-left">
+              <div class="logo"><img src="./assets/uOttawa.png" alt="University of Ottawa"></div>
+              <div>
+                <div class="title-line">University of Ottawa</div>
+              </div>
+            </div>
+            <div class="meta" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+              <span style="display:inline-flex;align-items:center;gap:8px">
+                <svg viewBox="0 0 24 24" fill="none" style="width:16px;height:16px;display:block">
+                  <path d="M6 2v3M12 2v3M18 2v3M4 7h16M5 9h14v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V9Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span>May 2022 – Aug 2025</span>
+              </span>
+              <span style="display:inline-flex;align-items:center;gap:8px">
+                <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;display:block">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6 12 6s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+                </svg>
+                <span>Ottawa</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="rolebox" style="margin-top:6px">
+            <div class="head">
+              <div class="title">Intermediate Software Engineer</div>
+              <div class="subtle">Feb 2025 – Aug 2025</div>
+            </div>
+            <div class="chips" style="margin-top:6px"><span class="chip">TypeScript</span><span class="chip">JavaScript</span></div>
+          </div>
+
+          <div class="rolebox" style="margin-top:8px">
+            <div class="head">
+              <div class="title">Junior Software Engineer (Co-op)</div>
+              <div class="subtle">May 2022 – Jan 2025</div>
+            </div>
+            <div class="chips" style="margin-top:6px"><span class="chip">.NET</span><span class="chip">C#</span><span class="chip">CI/CD</span><span class="chip">4 CO-OP Terms</span></div>
           </div>
         </div>
-      </section>
-      <footer>
-        <div class="row footer__row">
-          <a href="#" class="footer__anchor">
-            <figure class="footer__logo">
-              <img src="./assets/logo.jpg" class="footer__logo--img" alt="">
-            </figure>
-            <span class="footer__logo--popper">
-              Top
-              <i class="fas fa-arrow-up"></i>
+
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <h2>Education</h2>
+      <div class="card reveal">
+        <div class="company-head">
+          <div class="company-left">
+            <div class="logo"><img src="./assets/uOttawa.png" alt="University of Ottawa"></div>
+            <div>
+              <div class="title-line">University of Ottawa</div>
+              <div class="subtle">BASc, Computer Engineering</div>
+            </div>
+          </div>
+          <div class="meta" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+            <span style="display:inline-flex;align-items:center;gap:8px">
+              <svg viewBox="0 0 24 24" fill="none" style="width:16px;height:16px;display:block">
+                <path d="M6 2v3M12 2v3M18 2v3M4 7h16M5 9h14v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V9Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <span>Sep 2020 – Dec 2024</span>
             </span>
-          </a>
-          <div class="footer__social--list">
-            <a href="https://github.com/Majed-Mouawad" target="_blank" class="
-              footer__social--link
-              link__hover-effect
-              link__hover-effect--white
-            " target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/majedmouawad/" target="_blank" class="
-              footer__social--link
-              link__hover-effect
-              link__hover-effect--white
-            " target="_blank">LinkedIn</a>
-            <a href="mailto:m.mmajed@hotmail.com" target="_blank" class="
-              footer__social--link
-              link__hover-effect
-              link__hover-effect--white
-            " target="_blank">Email</a>
-            <a href="./assets/MajedMouawadResume.pdf" target="_blank" class="
-              footer__social--link
-              link__hover-effect
-              link__hover-effect--white
-            " target="_blank">Resume</a>
           </div>
-          <div class="footer__copyright">Copyright © 2024 Majed Mouawad</div>
         </div>
-      </footer>
+        <div class="chips" style="margin-top:8px"><span class="chip">Magna Cum Laude</span></div>
+      </div>
+    </section>
+
+    <section id="stack" class="section">
+      <h2>Stack</h2>
+      <div class="card reveal">
+        <div class="stack-grid">
+          <div class="tile">
+            <svg class="ticon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#61DAFB" stroke-width="2"/><circle cx="12" cy="12" r="2.5" fill="#61DAFB"/><ellipse cx="12" cy="12" rx="10" ry="4.5" stroke="#61DAFB" stroke-width="2" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.5" stroke="#61DAFB" stroke-width="2" transform="rotate(-60 12 12)"/></svg><span>React</span>
+          </div>
+          <div class="tile">
+            <svg class="ticon" viewBox="0 0 24 24" fill="#CC342D" aria-hidden="true"><path d="M12 4l7 5-7 11L5 9l7-5Z"/></svg><span>Ruby</span>
+          </div>
+          <div class="tile">
+            <svg class="ticon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="3" fill="#F7DF1E"/><path d="M8 7.5h4.5c2.1 0 3.4 1 3.4 2.7 0 1.2-.7 2.1-1.9 2.4v.05c1.6.2 2.5 1.1 2.5 2.6 0 1.9-1.4 3.2-3.8 3.2H8v-2h3c1 0 1.6-.5 1.6-1.3 0-.9-.6-1.3-1.8-1.3H8v-2h2.7c.9 0 1.5-.4 1.5-1.1 0-.7-.5-1.1-1.4-1.1H8v-2Z" fill="#000"/></svg><span>JavaScript</span>
+          </div>
+          <div class="tile">
+            <svg class="ticon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="3" fill="#3178C6"/><path d="M7 12.5h4.2v-2H5v2h1.5V17H9v-4.5Zm9.5 4.5c2 0 3.3-1 3.3-2.6 0-1.2-.7-2-2.4-2.3l-1.1-.2c-.7-.1-.9-.3-.9-.6 0-.4.4-.7 1.1-.7.7 0 1.3.2 1.9.6l.9-1.5c-.7-.5-1.7-.8-2.9-.8-1.9 0-3.2 1-3.2 2.5 0 1.3.9 2 2.4 2.3l1.1.2c.7.1.9.3.9.6 0 .4-.4.7-1.2.7-.8 0-1.6-.3-2.3-.8l-1 1.5c.8.7 2 1.1 3.4 1.1Z" fill="#fff"/></svg><span>TypeScript</span>
+          </div>
+          <div class="tile">
+            <svg class="ticon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 21 7v10l-9 5-9-5V7l9-5Z" fill="#68217A"/><path d="M9.8 12c0 1.4 1 2.3 2.4 2.3.8 0 1.5-.3 2-.9l1.1 1.2a4 4 0 0 1-3.2 1.5c-2.2 0-3.9-1.5-3.9-4 0-2.4 1.7-4 3.9-4 1.2 0 2.3.5 3 1.3l-1.1 1.3c-.4-.5-1-.8-1.9-.8-1.4 0-2.3.9-2.3 2.1Z" fill="#fff"/><path d="M16.6 9.2h.9l-.2 1.2h1.1l.2-1.2h.9l-.2 1.2h1.1v.9h-1.3l-.2 1.1h1.1v.9h-1.3l-.2 1.2h-.9l.2-1.2h-1.1l-.2 1.2h-.9l.2-1.2h-1.1v-.9h1.3l.2-1.1h-1.1v-.9h1.3l.2-1.2Zm.4 2.1-.2 1.1h1.1l.2-1.1h-1.1Z" fill="#fff"/></svg><span>C#</span>
+          </div>
+          <div class="tile">
+            <svg class="ticon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3" fill="#512BD4"/><path d="M6.2 15V9.5h1.3L9.8 13V9.5h1.3V15H9.8L7.5 11.6V15H6.2Zm6.2 0V10.6h-1.6V9.5h4.6v1.1h-1.6V15h-1.4Zm4.8 0V10.6h-1.6V9.5h4.6v1.1h-1.6V15h-1.4Z" fill="#fff"/></svg><span>.NET</span>
+          </div>
+          <div class="tile">
+            <svg class="ticon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c2.5 0 4 .6 4 2.6V9a2 2 0 0 1-2 2H8c-1.6 0-3-.7-3-2.6V6C5 4 6.5 3 9 3h3Z" fill="#3776AB"/><circle cx="10" cy="6" r="0.8" fill="#fff"/><path d="M12 21c-2.5 0-4-.6-4-2.6V15a2 2 0 0 1 2-2h6c1.6 0 3 .7 3 2.6V18c0 2-1.5 3-4 3h-3Z" fill="#FFD43B"/><circle cx="14" cy="18" r="0.8" fill="#fff"/></svg><span>Python</span>
+          </div>
+          <div class="tile">
+            <svg class="ticon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#cbd6ff" stroke-width="1.8"/><path d="M8 11l2-2 2 2M14 13l2 2-2 2" stroke="#cbd6ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 9v6M14 9v6" stroke="#cbd6ff" stroke-width="1.6" stroke-linecap="round"/></svg><span>CI/CD</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</main>
+
+<footer class="container"><div>© 2025 Majed Mouawad</div></footer>
+
+<script>
+const progress=document.getElementById('progress');document.addEventListener('scroll',()=>{const s=window.scrollY;const h=document.body.scrollHeight-window.innerHeight;progress.style.width=((s/h)*100)+'%'});
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('active')})},{threshold:.18});
+document.querySelectorAll('.reveal,.company,.tile,.card').forEach(n=>io.observe(n));
+const nameToType="Majed Mouawad";const el=document.getElementById('type');let i=0;function typeOnce(){el.textContent=nameToType.slice(0,i);i++;if(i<=nameToType.length){setTimeout(typeOnce,110)}else{el.classList.remove('type')}}window.addEventListener('load',()=>typeOnce());
+</script>
 </body>
 </html>
