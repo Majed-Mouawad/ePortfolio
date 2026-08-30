@@ -73,6 +73,12 @@ svg {
   }
 }
 
+@media (hover: none), (pointer: coarse) {
+  .skip-link {
+    display: none;
+  }
+}
+
 .scroll-progress {
   position: fixed;
   top: 0;
