@@ -67,7 +67,7 @@ svg {
   transition: transform 180ms ease;
 }
 
-.skip-link:focus {
+.skip-link:focus-visible {
   transform: translateY(0);
 }
 
