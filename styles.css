@@ -67,8 +67,10 @@ svg {
   transition: transform 180ms ease;
 }
 
-.skip-link:focus-visible {
-  transform: translateY(0);
+@media (hover: hover) and (pointer: fine) {
+  .skip-link:focus-visible {
+    transform: translateY(0);
+  }
 }
 
 .scroll-progress {
